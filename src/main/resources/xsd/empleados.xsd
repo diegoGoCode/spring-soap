@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.example.com/demosoap/gen"
+           targetNamespace="http://www.example.com/demosoap/gen" elementFormDefault="qualified">
+
+    <!-- Find All -->
+    <xs:element name="getEmpleadosRequest">
+        <xs:complexType>
+            <xs:sequence>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="getEmpleadosResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="empleado" type="tns:empleado" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <!-- Find by name -->
+    <xs:element name="getEmpleadoRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="name" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="getEmpleadoResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="empleado" type="tns:empleado"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <!-- Save -->
+    <xs:element name="postEmpleadoRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="empleado" type="tns:empleado"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="postEmpleadoResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="empleado" type="tns:empleado"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="empleado">
+        <xs:sequence>
+            <xs:element name="id" type="xs:int"/>
+            <xs:element name="nombres" type="xs:string"/>
+            <xs:element name="apellidos" type="xs:string"/>
+            <xs:element name="tipoDocumento" type="xs:string"/>
+            <xs:element name="numeroDocumento" type="xs:string"/>
+            <xs:element name="fechaNacimiento" type="xs:date"/>
+            <xs:element name="fechaVinculacion" type="xs:date"/>
+            <xs:element name="cargo" type="xs:string"/>
+            <xs:element name="salario" type="xs:double"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
